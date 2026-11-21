@@ -1,9 +1,35 @@
+# Dependencies
 node_modules/
+.pnp
+.pnp.js
+
+# Build
 .next/
 out/
+dist/
+
+# Env
 .env
 .env.local
 .env.*.local
+
+# TypeScript
 tsconfig.tsbuildinfo
+
+# Logs
 *.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Misc
 .DS_Store
+
+# Internal dev artifacts
+AGENTS.md
+CURRENT_STATE.md
+NEXT_SESSION.md
+ROADMAP.md
+docs/execution-log/
