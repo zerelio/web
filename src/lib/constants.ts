@@ -1,15 +1,13 @@
 export const SITE_NAME = "Zerelio";
 export const SITE_URL = "https://zerelio.dev";
 export const SITE_DESCRIPTION =
-  "Enterprise infrastructure discovery and auto-documentation platform. Automatically discover, map, and document your cloud, Kubernetes, and network infrastructure.";
-export const GITHUB_REPO = "https://github.com/zerelio/zerelio";
+  "Open-source infrastructure intelligence platform. Discover every resource, map every relationship, enforce every policy — self-hosted.";
+export const GITHUB_REPO = "https://github.com/zerelio/knowledge";
 
 export const NAV_LINKS = [
-  { label: "Features", href: "/features" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Demo", href: "/demo" },
-  { label: "Design Partners", href: "/customers" },
+  { label: "Knowledge", href: "/knowledge" },
+  { label: "Security", href: "/security" },
+  { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blog" },
 ] as const;
 

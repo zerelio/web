@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/home/Hero";
-import { FeatureShowcase } from "@/components/home/FeatureShowcase";
-import { StatsCounter } from "@/components/home/StatsCounter";
-import { CTASection } from "@/components/home/CTASection";
-import { LogoCloud } from "@/components/home/LogoCloud";
-import { HowItWorks } from "@/components/home/HowItWorks";
-import { EnterpriseFeatures } from "@/components/home/EnterpriseFeatures";
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
+import { PlatformHero } from "@/components/platform/PlatformHero";
+import { ProductCards } from "@/components/platform/ProductCards";
+import { OpenSourceSection } from "@/components/platform/OpenSourceSection";
+import { PlatformHowItWorks } from "@/components/platform/PlatformHowItWorks";
+import { PlatformCTA } from "@/components/platform/PlatformCTA";
+
+const description =
+  "Open-source infrastructure intelligence platform. Discover every resource, map every relationship, enforce every policy — self-hosted.";
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — Infrastructure Discovery & Documentation Platform`,
-  description: SITE_DESCRIPTION,
+  title: `${SITE_NAME} — Infrastructure Intelligence Platform`,
+  description,
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Infrastructure Discovery & Documentation Platform`,
-    description: SITE_DESCRIPTION,
+    title: `${SITE_NAME} — Infrastructure Intelligence Platform`,
+    description,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
@@ -26,13 +27,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <StatsCounter />
-      <FeatureShowcase />
-      <EnterpriseFeatures />
-      <HowItWorks />
-      <LogoCloud />
-      <CTASection />
+      <PlatformHero />
+      <ProductCards />
+      <OpenSourceSection />
+      <PlatformHowItWorks />
+      <PlatformCTA />
     </>
   );
 }

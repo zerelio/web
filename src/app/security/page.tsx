@@ -1,96 +1,114 @@
 import type { Metadata } from "next";
-import { SITE_NAME } from "@/lib/constants";
-import { Shield, Lock, Eye, Server, CheckCircle } from "lucide-react";
-import { GlassCard, GradientText, GradientButton } from "@/components/shared/GlassComponents";
-import { Section } from "@/components/shared/Section";
+import { WaitlistForm } from "@/components/security/WaitlistForm";
 
 export const metadata: Metadata = {
-  title: "Security",
-  description: `${SITE_NAME} security practices, compliance, and data protection.`,
+  title: "Zerelio Security — Coming Soon",
+  description:
+    "Policy enforcement, vulnerability detection, and runtime security built on the Zerelio Knowledge graph. Join the waitlist.",
 };
+
+const featurePreviews = [
+  "Policy-as-code enforcement",
+  "CVE detection with infrastructure context",
+  "Drift detection & alerting",
+  "Audit trails & compliance reports",
+];
 
 export default function SecurityPage() {
   return (
     <>
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/20 via-bg-dark to-bg-dark" />
+      {/* Hero */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[120px] opacity-10 pointer-events-none"
+          style={{ background: "#0ea5e9" }}
+        />
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Security is <GradientText>non-negotiable</GradientText>
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <span className="text-sm font-semibold" style={{ color: "#38bdf8" }}>
+              Zerelio Security
+            </span>
+            <span
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold"
+              style={{ background: "rgba(161,161,170,0.1)", color: "#a1a1aa" }}
+            >
+              Coming soon
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+            Security that{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)",
+              }}
+            >
+              knows your infrastructure.
+            </span>
           </h1>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Your infrastructure data never leaves your control. Built from the ground up
-            for enterprises that take security seriously.
+
+          <p
+            className="text-lg md:text-xl mb-14 leading-relaxed max-w-2xl mx-auto"
+            style={{ color: "#a1a1aa" }}
+          >
+            Built on the Zerelio Knowledge graph — vulnerability detection,
+            policy enforcement, and drift alerting that understands your actual
+            topology.
           </p>
+
+          {/* Feature previews (dimmed) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-14">
+            {featurePreviews.map((feat) => (
+              <div
+                key={feat}
+                className="relative rounded-xl px-5 py-4 border text-sm text-left overflow-hidden"
+                style={{ background: "#111113", borderColor: "#27272a" }}
+              >
+                {/* Blur overlay to show "coming soon" state */}
+                <div className="absolute inset-0 backdrop-blur-[1px] bg-bg-dark/30 rounded-xl" />
+                <div className="relative flex items-center gap-2.5" style={{ color: "#52525b" }}>
+                  <span>○</span>
+                  <span>{feat}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Email capture */}
+          <div className="max-w-lg mx-auto">
+            <p className="text-sm mb-4" style={{ color: "#71717a" }}>
+              Get notified when Security launches
+            </p>
+            <WaitlistForm />
+          </div>
         </div>
       </section>
 
-      <Section>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <GlassCard className="p-8">
-              <Shield className="w-8 h-8 text-primary-400 mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">SOC 2 Type II</h3>
-              <p className="text-sm text-text-secondary">
-                Annually audited controls for security, availability, and confidentiality.
-              </p>
-            </GlassCard>
-            <GlassCard className="p-8">
-              <Lock className="w-8 h-8 text-primary-400 mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">Encrypted at Rest</h3>
-              <p className="text-sm text-text-secondary">
-                All credentials and sensitive data encrypted with AES-256. Keys managed
-                through your preferred vault integration.
-              </p>
-            </GlassCard>
-            <GlassCard className="p-8">
-              <Eye className="w-8 h-8 text-primary-400 mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">Read-Only Access</h3>
-              <p className="text-sm text-text-secondary">
-                Discovery uses read-only credentials. We never modify, create, or delete
-                any of your infrastructure resources.
-              </p>
-            </GlassCard>
-            <GlassCard className="p-8">
-              <Server className="w-8 h-8 text-primary-400 mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">On-Premise Option</h3>
-              <p className="text-sm text-text-secondary">
-                Enterprise plan includes on-premise deployment. Your data never leaves
-                your network perimeter.
-              </p>
-            </GlassCard>
-            <GlassCard className="p-8">
-              <CheckCircle className="w-8 h-8 text-primary-400 mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">SSO & RBAC</h3>
-              <p className="text-sm text-text-secondary">
-                SAML 2.0 SSO with fine-grained role-based access control. Audit logs for
-                every action.
-              </p>
-            </GlassCard>
-            <GlassCard className="p-8">
-              <Shield className="w-8 h-8 text-primary-400 mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">Vulnerability Scanning</h3>
-              <p className="text-sm text-text-secondary">
-                Container images scanned with Trivy on every build. Dependencies monitored
-                for CVEs with automated patching.
-              </p>
-            </GlassCard>
-          </div>
-        </div>
-      </Section>
-
-      <section className="py-16 border-t border-border-subtle">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-text-primary mb-4">
-            Have security questions?
-          </h2>
-          <p className="text-text-secondary mb-6">
-            We&apos;re happy to share our full security documentation, complete a security review,
-            or sign your NDA.
+      {/* Note */}
+      <section className="py-10 border-t" style={{ borderColor: "#27272a" }}>
+        <div className="mx-auto max-w-2xl px-4 text-center">
+          <p className="text-sm" style={{ color: "#52525b" }}>
+            Zerelio Security will be a paid product.{" "}
+            <a
+              href="/knowledge"
+              className="underline underline-offset-2 transition-colors hover:text-[#a1a1aa]"
+              style={{ color: "#71717a" }}
+            >
+              Zerelio Knowledge
+            </a>{" "}
+            remains free and open-source.
           </p>
-          <GradientButton href="mailto:security@zerelio.dev" variant="outline">
-            Contact Our Security Team
-          </GradientButton>
         </div>
       </section>
     </>
